@@ -60,6 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         geoData["longitude"] = longitude
         geoData["latitude"] = latitude
         geoData["timeStamp"] = dateformetter.stringFromDate(now)
+        geoData["OS"] = "iOS"
         geoData.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             print("Object has been saved.")
             if error != nil {
@@ -77,7 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         lm.delegate = self
         lm.requestAlwaysAuthorization()
         lm.desiredAccuracy = kCLLocationAccuracyBest
-        lm.distanceFilter = 5
+        lm.distanceFilter = 100
         
         longitude = 0.0
         latitude = 0.0

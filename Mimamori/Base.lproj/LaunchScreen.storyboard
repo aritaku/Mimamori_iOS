@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-83.5" translatesAutoresizingMaskIntoConstraints="NO" id="E8U-aq-bE3">
+                                <rect key="frame" x="235" y="234" width="130" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="E8U-aq-bE3" secondAttribute="height" multiplier="457:464" id="sZR-eD-rly"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="E8U-aq-bE3" secondAttribute="bottom" constant="234" id="1p3-EM-grm"/>
+                            <constraint firstItem="E8U-aq-bE3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cil-OD-BYK"/>
+                            <constraint firstItem="E8U-aq-bE3" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="214" id="kce-K2-wOB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-83.5" width="83" height="83"/>
+    </resources>
 </document>

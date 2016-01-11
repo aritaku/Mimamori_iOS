@@ -78,7 +78,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         lm.delegate = self
         lm.requestAlwaysAuthorization()
         lm.desiredAccuracy = kCLLocationAccuracyBest
-        lm.distanceFilter = 100
+        lm.allowsBackgroundLocationUpdates = true
+        lm.distanceFilter = 10
         
         longitude = 0.0
         latitude = 0.0

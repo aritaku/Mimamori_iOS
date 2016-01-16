@@ -19,7 +19,6 @@
 		E83BDB651C2E954E0006E941 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83BDB641C2E954E0006E941 /* CoreLocation.framework */; };
 		E83BDB671C2E955A0006E941 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83BDB661C2E955A0006E941 /* QuartzCore.framework */; };
 		E83BDB691C2E95760006E941 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83BDB681C2E95760006E941 /* Security.framework */; };
-		E83BDB6B1C2E957E0006E941 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83BDB6A1C2E957E0006E941 /* StoreKit.framework */; };
 		E83BDB6D1C2E958A0006E941 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83BDB6C1C2E958A0006E941 /* SystemConfiguration.framework */; };
 		E83BDB711C2E95A10006E941 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E83BDB701C2E95A10006E941 /* libsqlite3.0.tbd */; };
 		E83BDB731C2E96C10006E941 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E83BDB721C2E96C10006E941 /* libc.tbd */; };
@@ -43,7 +42,6 @@
 		E83BDB641C2E954E0006E941 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E83BDB661C2E955A0006E941 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E83BDB681C2E95760006E941 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		E83BDB6A1C2E957E0006E941 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E83BDB6C1C2E958A0006E941 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E83BDB6E1C2E95930006E941 /* IOABPLib.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = IOABPLib.tbd; path = usr/lib/IOABPLib.tbd; sourceTree = SDKROOT; };
 		E83BDB701C2E95A10006E941 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -60,7 +58,6 @@
 				E83BDB731C2E96C10006E941 /* libc.tbd in Frameworks */,
 				E83BDB711C2E95A10006E941 /* libsqlite3.0.tbd in Frameworks */,
 				E83BDB6D1C2E958A0006E941 /* SystemConfiguration.framework in Frameworks */,
-				E83BDB6B1C2E957E0006E941 /* StoreKit.framework in Frameworks */,
 				E83BDB691C2E95760006E941 /* Security.framework in Frameworks */,
 				E83BDB671C2E955A0006E941 /* QuartzCore.framework in Frameworks */,
 				E83BDB651C2E954E0006E941 /* CoreLocation.framework in Frameworks */,
@@ -91,7 +88,6 @@
 				E83BDB701C2E95A10006E941 /* libsqlite3.0.tbd */,
 				E83BDB6E1C2E95930006E941 /* IOABPLib.tbd */,
 				E83BDB6C1C2E958A0006E941 /* SystemConfiguration.framework */,
-				E83BDB6A1C2E957E0006E941 /* StoreKit.framework */,
 				E83BDB681C2E95760006E941 /* Security.framework */,
 				E83BDB661C2E955A0006E941 /* QuartzCore.framework */,
 				E83BDB641C2E954E0006E941 /* CoreLocation.framework */,
@@ -170,6 +166,17 @@
 					E83BDB481C2E93300006E941 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = R6G87ZFKDH;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

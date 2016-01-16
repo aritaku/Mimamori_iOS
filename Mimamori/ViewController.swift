@@ -61,8 +61,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         geoData["latitude"] = latitude
         geoData["timeStamp"] = dateformetter.stringFromDate(now)
         geoData["OS"] = "iOS"
-        geoData.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            print("Object has been saved.")
+        geoData.saveInBackgroundWithBlock { [unowned self](success: Bool, error: NSError?) -> Void in
+            print("Object has been saved in Parse. \(self.dateformetter.stringFromDate(now))")
             if error != nil {
                 self.statusLabel.text = String(error)
             }

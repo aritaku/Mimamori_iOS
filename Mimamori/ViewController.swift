@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import CoreLocation
+import RealmSwift
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -36,23 +37,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         statusLabel.text = "停止中"
     }
     
-    /*
-    func writeGeoDataToRealm(latitude:Double, longitude:Double){
-    let geoData = GeoData()
-    geoData.latitude = latitude
-    geoData.longitude = longitude
     
-    let now = NSDate()
-    geoData.timeStamp = dateformetter.stringFromDate(now)
-    
-    let realm = try! Realm()
-    try! realm.write {
-    realm.add(geoData)
+    func writeGeoDataToRealm(latitude:Double, longitude:Double, os:String){
+        let geoData = GeoData()
+        geoData.latitude = latitude
+        geoData.longitude = longitude
+        geoData.os = "iOS"
+        
+        let now = NSDate()
+        geoData.timeStamp = dateformetter.stringFromDate(now)
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(geoData)
+        }
+        
+        print(realm.objects(GeoData).last)
     }
-    
-    print(realm.objects(GeoData).last)
-    }
-    */
+
     
     func writeGeoDataToParse(latitude:Double, longitude:Double){
         let geoData = PFObject(className: "GeoData")
@@ -67,6 +69,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.statusLabel.text = String(error)
             }
         }
+
+        writeGeoDataToRealm(latitude, longitude: longitude, os: "iOS")
         
     }
     

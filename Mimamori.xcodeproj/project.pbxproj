@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33C65004F60E524CA4BA5C2B /* Pods_Mimamori.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA77674F79EDE75D3D26885C /* Pods_Mimamori.framework */; };
+		E800D69D1C4A3C7800B02D2C /* GeoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E800D69C1C4A3C7800B02D2C /* GeoData.swift */; };
 		E83BDB4D1C2E93300006E941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83BDB4C1C2E93300006E941 /* AppDelegate.swift */; };
 		E83BDB4F1C2E93300006E941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83BDB4E1C2E93300006E941 /* ViewController.swift */; };
 		E83BDB521C2E93300006E941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E83BDB501C2E93300006E941 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		5B7A35FCA0E092000943D6A8 /* Pods-Mimamori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimamori.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mimamori/Pods-Mimamori.debug.xcconfig"; sourceTree = "<group>"; };
 		760E0DD315920BE197D8A07E /* Pods-Mimamori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimamori.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimamori/Pods-Mimamori.release.xcconfig"; sourceTree = "<group>"; };
 		CA77674F79EDE75D3D26885C /* Pods_Mimamori.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mimamori.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E800D69C1C4A3C7800B02D2C /* GeoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoData.swift; sourceTree = "<group>"; };
 		E83BDB491C2E93300006E941 /* Mimamori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimamori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83BDB4C1C2E93300006E941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E83BDB4E1C2E93300006E941 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				E83BDB4C1C2E93300006E941 /* AppDelegate.swift */,
 				E83BDB4E1C2E93300006E941 /* ViewController.swift */,
+				E800D69C1C4A3C7800B02D2C /* GeoData.swift */,
 				E83BDB501C2E93300006E941 /* Main.storyboard */,
 				E83BDB531C2E93300006E941 /* Assets.xcassets */,
 				E83BDB551C2E93300006E941 /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E83BDB4F1C2E93300006E941 /* ViewController.swift in Sources */,
+				E800D69D1C4A3C7800B02D2C /* GeoData.swift in Sources */,
 				E83BDB4D1C2E93300006E941 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

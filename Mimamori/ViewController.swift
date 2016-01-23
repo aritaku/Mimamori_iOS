@@ -54,7 +54,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         print(realm.objects(GeoData).last)
     }
-
+    
+    
     
     func writeGeoDataToParse(latitude:Double, longitude:Double){
         let geoData = PFObject(className: "GeoData")
@@ -69,9 +70,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.statusLabel.text = String(error)
             }
         }
-
-        writeGeoDataToRealm(latitude, longitude: longitude, os: "iOS")
-        
     }
     
     override func viewDidLoad() {
@@ -108,7 +106,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         longitude = newLocation.coordinate.longitude
         latitude = newLocation.coordinate.latitude
         
-        //riteGeoDataToRealm(latitude, longitude: longitude)
+        writeGeoDataToRealm(latitude, longitude: longitude, os: "iOS")
         writeGeoDataToParse(latitude, longitude: longitude)
         
         self.longitudeLabel.text = String(self.longitude)

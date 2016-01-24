@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 import CoreLocation
-import RealmSwift
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -39,22 +38,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    func writeGeoDataToRealm(latitude:Double, longitude:Double, os:String){
-        let geoData = GeoData()
-        geoData.latitude = latitude
-        geoData.longitude = longitude
-        geoData.os = "iOS"
-        
-        let now = NSDate()
-        geoData.timeStamp = dateformetter.stringFromDate(now)
-        
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(geoData)
-        }
-        
-        print(realm.objects(GeoData).last)
-    }
+//    func writeGeoDataToRealm(latitude:Double, longitude:Double, os:String){
+//        let geoData = GeoData()
+//        geoData.latitude = latitude
+//        geoData.longitude = longitude
+//        geoData.os = "iOS"
+//        
+//        let now = NSDate()
+//        geoData.timeStamp = dateformetter.stringFromDate(now)
+//        
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.add(geoData)
+//        }
+//        
+//        print(realm.objects(GeoData).last)
+//    }
     
     
     
@@ -96,7 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         dateformetter.timeStyle = .MediumStyle
         dateformetter.dateStyle = .MediumStyle
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: "start", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(600, target: self, selector: "start", userInfo: nil, repeats: true)
         
     }
     

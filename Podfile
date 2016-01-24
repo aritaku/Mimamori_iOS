@@ -3,5 +3,4 @@ use_frameworks!
 
 target 'Mimamori' do
 pod 'Parse', '~> 1.11.0'
-pod 'RealmSwift'
 end

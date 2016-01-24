@@ -86,12 +86,8 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Mimamori/Bolts.framework"
   install_framework "Pods-Mimamori/Parse.framework"
-  install_framework "Pods-Mimamori/Realm.framework"
-  install_framework "Pods-Mimamori/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Mimamori/Bolts.framework"
   install_framework "Pods-Mimamori/Parse.framework"
-  install_framework "Pods-Mimamori/Realm.framework"
-  install_framework "Pods-Mimamori/RealmSwift.framework"
 fi

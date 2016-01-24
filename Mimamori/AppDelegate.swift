@@ -9,14 +9,13 @@
 import UIKit
 import Parse
 import CoreLocation
-import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-    var locationManager = CLLocationManager()
-    var time :NSTimeInterval = 600
+//    var locationManager = CLLocationManager()
+//    var time :NSTimeInterval = 600
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         //Background fetch
         //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(time)
+        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(time)
         
         // Register for Push Notitications
         if application.applicationState != UIApplicationState.Background {
@@ -68,10 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        self.locationManager.delegate = self
-        self.locationManager.allowsBackgroundLocationUpdates = true
-        //self.locationManager.startUpdatingLocation()
-        self.time = 600
+//        self.locationManager.delegate = self
+//        self.locationManager.allowsBackgroundLocationUpdates = true
+//        //self.locationManager.startUpdatingLocation()
+//        self.time = 600
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -108,46 +107,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     //一定時間ごとに呼び出される
-    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        
-        locationManager.startUpdatingLocation()
-
-        let newLocation = CLLocation()
-        var longitude :CLLocationDegrees = 0.0
-        var latitude :CLLocationDegrees = 0.0
-        
-        latitude = newLocation.coordinate.latitude
-        longitude = newLocation.coordinate.longitude
-        
-        let geoData_Realm = GeoData()
-        let geoData_Parse = PFObject(className: "GeoData")
-        let now = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        
-        geoData_Realm.latitude = latitude
-        geoData_Realm.longitude = longitude
-        geoData_Realm.os = "iOS"
-        geoData_Realm.timeStamp = formatter.stringFromDate(now)
-        
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(geoData_Realm)
-        }
-        
-        geoData_Parse["longitude"] = longitude
-        geoData_Parse["latitude"] = latitude
-        geoData_Parse["timeStamp"] = formatter.stringFromDate(now)
-        geoData_Parse["OS"] = "iOS"
-        geoData_Parse.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
-            print("Object has been saved in Parse. \(formatter.stringFromDate(now))")
-            if error != nil {
-                print(error)
-            }
-        }
-        print(realm.objects(GeoData).last)
-        completionHandler(.Failed)
-    }
+//    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+//        
+//        locationManager.startUpdatingLocation()
+//
+//        let newLocation = CLLocation()
+//        var longitude :CLLocationDegrees = 0.0
+//        var latitude :CLLocationDegrees = 0.0
+//        
+//        latitude = newLocation.coordinate.latitude
+//        longitude = newLocation.coordinate.longitude
+//        
+//        let geoData_Parse = PFObject(className: "GeoData")
+//        let now = NSDate()
+//        let formatter = NSDateFormatter()
+//        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+//        
+//        geoData_Parse["longitude"] = longitude
+//        geoData_Parse["latitude"] = latitude
+//        geoData_Parse["timeStamp"] = formatter.stringFromDate(now)
+//        geoData_Parse["OS"] = "iOS"
+//        geoData_Parse.saveInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
+//            print("Object has been saved in Parse. \(formatter.stringFromDate(now))")
+//            if error != nil {
+//                print(error)
+//            }
+//        }
+//        completionHandler(.Failed)
+//    }
 
 
 }

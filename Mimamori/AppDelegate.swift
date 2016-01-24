@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     var window: UIWindow?
     var locationManager = CLLocationManager()
-    var time :NSTimeInterval = 10
+    var time :NSTimeInterval = 600
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         //Background fetch
-//        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        //UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(time)
         
@@ -69,8 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
-        self.time = 10
+        self.locationManager.allowsBackgroundLocationUpdates = true
+        //self.locationManager.startUpdatingLocation()
+        self.time = 600
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -106,8 +107,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
     }
     
+    //一定時間ごとに呼び出される
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
+        locationManager.startUpdatingLocation()
+
         let newLocation = CLLocation()
         var longitude :CLLocationDegrees = 0.0
         var latitude :CLLocationDegrees = 0.0
@@ -121,7 +125,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         
-        locationManager.startUpdatingLocation()
         geoData_Realm.latitude = latitude
         geoData_Realm.longitude = longitude
         geoData_Realm.os = "iOS"
@@ -143,7 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         }
         print(realm.objects(GeoData).last)
-        completionHandler(UIBackgroundFetchResult.NewData)
+        completionHandler(.Failed)
     }
 
 

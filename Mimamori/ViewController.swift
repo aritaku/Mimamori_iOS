@@ -16,6 +16,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var lm :CLLocationManager! = nil
     var longitude :CLLocationDegrees!
     var latitude :CLLocationDegrees!
+    var timer :NSTimer?
     
     let dateformetter = NSDateFormatter()
     
@@ -79,9 +80,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         lm = CLLocationManager()
         lm.delegate = self
         lm.requestAlwaysAuthorization()
-        lm.desiredAccuracy = kCLLocationAccuracyBest
-        lm.allowsBackgroundLocationUpdates = true
-        lm.distanceFilter = 10
+        lm.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        if #available(iOS 9.0, *){
+            lm.allowsBackgroundLocationUpdates = true
+        }
+        lm.distanceFilter = 5
         
         longitude = 0.0
         latitude = 0.0
@@ -92,6 +95,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         dateformetter.locale = NSLocale(localeIdentifier: "ja_JP")
         dateformetter.timeStyle = .MediumStyle
         dateformetter.dateStyle = .MediumStyle
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: "start", userInfo: nil, repeats: true)
         
     }
     
@@ -106,13 +111,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         longitude = newLocation.coordinate.longitude
         latitude = newLocation.coordinate.latitude
         
-        writeGeoDataToRealm(latitude, longitude: longitude, os: "iOS")
+        //writeGeoDataToRealm(latitude, longitude: longitude, os: "iOS")
         writeGeoDataToParse(latitude, longitude: longitude)
         
         self.longitudeLabel.text = String(self.longitude)
         self.latitudeLabel.text = String(self.latitude)
         statusLabel.text = "位置情報収集中"
-        
     }
     
     /** 位置情報取得失敗時 */
@@ -120,8 +124,5 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         NSLog("位置情報の取得に失敗しています。")
         statusLabel.text = "位置情報の取得に失敗しています。"
     }
-
-
-
 }
 

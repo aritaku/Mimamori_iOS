@@ -168,7 +168,7 @@
 				TargetAttributes = {
 					E83BDB481C2E93300006E941 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = R6G87ZFKDH;
+						DevelopmentTeam = YR2THJGJ2W;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 1;
@@ -385,7 +385,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Mimamori/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.edu.Mimamori;
+				PRODUCT_BUNDLE_IDENTIFIER = medinnovation.Mimamori;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -400,7 +400,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Mimamori/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.edu.Mimamori;
+				PRODUCT_BUNDLE_IDENTIFIER = medinnovation.Mimamori;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

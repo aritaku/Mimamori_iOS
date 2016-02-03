@@ -65,7 +65,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         geoData["timeStamp"] = dateformetter.stringFromDate(now)
         geoData["OS"] = "iOS"
         geoData.saveInBackgroundWithBlock { [unowned self](success: Bool, error: NSError?) -> Void in
-            print("Object has been saved in Parse. \(self.dateformetter.stringFromDate(now))")
+            print("GeoData has been saved in Parse. \(self.dateformetter.stringFromDate(now))")
             if error != nil {
                 self.statusLabel.text = String(error)
             }
@@ -102,6 +102,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        statusLabel.text = "メモリ不足のために計測が中止されました"
+        print("Received memory warning")
     }
     
     /** 位置情報取得成功時 */
